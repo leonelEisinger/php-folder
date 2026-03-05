@@ -1,1 +1,44 @@
+<!--
 
+    1) Construir uma página PHP que leia 2 números e efetue a adição. Caso o
+    valor somado seja maior que 20, este deverá ser apresentando somando-se a
+    ele mais 8; caso o valor somado seja menor ou igual a 20, este deverá ser
+    apresentado subtraindo-se 5.
+
+-->
+
+<?php
+
+    $num1 = @$_GET["inpNr1"]; 
+    $num2 = @$_GET["inpNr2"];
+    $aux = 0;
+
+    if ($num1 != null && $num2 != null) {
+        if( $num1 + $num2 > 20) {
+            $aux = ($num1 + $num2)+8;
+        } else if( $num1 + $num2 <= 20) {
+            $aux = ($num1 + $num2)-5;
+        }
+    }
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1 - Soma, > 20 e <= 20</title>
+</head>
+<body>
+    <form method="get">
+        <h1>Soma</h1>
+
+        <input type="text" name="inpNr1" value="<?php echo $num1?>">
+        </br>
+        <input type="text" name="inpNr2" value="<?php echo $num2?>">
+        </br>
+        <input type="submit" value="Sum" onclick="resetNr()">
+    </form>
+        <p><?php echo $aux?></p>
+</body>
+</html>
