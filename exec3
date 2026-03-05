@@ -1,0 +1,57 @@
+<!-- 
+
+    3)Construir uma página PHP onde seja possível entrar com nome, sexo e
+    idade de uma pessoa. Se a pessoa for do sexo feminino e tiver menos que 25
+    anos, mostrar nome e a a mensagem: ACEITA. Caso contrário, mostrar nome e
+    a mensagem: NÃO ACEITA.
+
+-->
+
+<?php 
+    $nome = @$_GET["nome"];
+    $sexo = @$_GET["sexo"];
+    $idade = @$_GET["idade"];
+
+    $result = "";
+
+    if ($nome != null && $idade != null && $sexo != null) {
+        if ($sexo == "Feminino" && $idade < 25){
+            $result = $nome." - ACEITA";
+        } else {
+            $result = $nome." - NÃO ACEITA";
+        }
+    }
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3 - Aceita ou Não Aceita</title>
+</head>
+<body>
+    <form method="GET">
+        <h1>Digite suas informações</h1>  
+        <label for="nome">Nome</label>
+        <input type="text" placeholder="Digite Seu nome" name="nome">
+        </br>
+        
+        <label for="idade">Idade</label>
+        <input type="number" placeholder="Digite sua idade" name="idade">
+        </br>
+        
+        <label for="sexo">Escolha seu gênero</label>
+        <select name="sexo">
+            <option value="Masculino">Masculino</option>
+            <option value="Feminino">Feminino</option>
+            <option value="Prefiro não dizer">Prefiro não dizer</option>
+        </select>
+
+        <input type="submit">
+    </form>
+
+    <P><?php echo $result ?></P>
+
+</body>
+</html>
