@@ -1,1 +1,42 @@
+<!-- 
+    2) Construir uma página PHP onde seja possível entrar com um número e
+    informar se ele é divisível por 10, por 5, por 2 ou se não é divisível por nenhum
+    destes.
+-->
 
+<?php 
+    $num = @$_GET["inpNr"];
+    $result = "";
+
+    if($num != null){
+        if ($num % 10 == 0){
+            $result = "Divisível por 10";
+        }else if ($num % 5 == 0){
+            $result = "Divisível por 5";
+        }else if ($num % 2 == 0){
+            $result = "Divisível por 2";
+        }else {
+            $result = "Não é divisível pelos números acima";
+        }
+    }
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="get">
+        <h1>Verifica se é divisível por 10, 5 e 2</h1>
+        <input type="text" name="inpNr" value="<?php echo $num?>">
+
+        <input type="submit">
+    </form>
+
+    <p><?php echo $result?></p>
+</body>
+</html>
