@@ -16,7 +16,7 @@
     if ($num1 != null && $num2 != null) {
         if( $num1 + $num2 > 20) {
             $aux = ($num1 + $num2)+8;
-        } else if( $num1 + $num2 <= 20) {
+        } elseif( $num1 + $num2 <= 20) {
             $aux = ($num1 + $num2)-5;
         }
     }
