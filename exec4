@@ -1,0 +1,59 @@
+<!--
+
+    4) Construir uma página PHP onde seja possível entrar com 3 números e
+    mostrá-los em ordem decrescente (suponha números diferentes).
+
+    3 2 1
+
+-->
+<?php 
+    $num1 = @$_GET["nr1"];
+    $num2 = @$_GET["nr2"];
+    $num3 = @$_GET["nr3"];
+    $aux = 0;
+
+    $order = array($num1,$num2,$num3);
+
+    while(true){
+        if ($num1 >= $num2) {
+            $aux = $order[0];
+            $order[0] = $num2;
+            $order[1] = $aux;
+        }elseif ($num2 >= $num3) {
+            $aux = $order[1];
+            $order[1] = $num3;
+            $order[2] = $aux;
+        }elseif ($num1 >= $num3) {
+            $aux = $order[0];
+            $order[0] = $num3;
+            $order[2] = $aux;
+        }else{
+            break;
+        }
+    }
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+</head>
+<body>
+    <form method="GET">
+        <input type="text" value="<?php $num1 ?>" name="nr1"></br>
+        <input type="text" value="<?php $num2 ?>" name="nr2"></br>
+        <input type="text" value="<?php $num3 ?>" name="nr3"></br>
+
+        <input type="submit">
+    </form>
+
+    <?php
+        foreach ($order as $key) {
+            echo "$key ";
+        }
+
+    ?>
+</body>
+</html>
