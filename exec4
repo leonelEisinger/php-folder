@@ -7,30 +7,27 @@
 
 -->
 <?php 
+
     $num1 = @$_GET["nr1"];
     $num2 = @$_GET["nr2"];
     $num3 = @$_GET["nr3"];
-    $aux = 0;
 
-    $order = array($num1,$num2,$num3);
+    $order = array();
 
-    while(true){
-        if ($num1 >= $num2) {
-            $aux = $order[0];
-            $order[0] = $num2;
-            $order[1] = $aux;
-        }elseif ($num2 >= $num3) {
-            $aux = $order[1];
-            $order[1] = $num3;
-            $order[2] = $aux;
-        }elseif ($num1 >= $num3) {
-            $aux = $order[0];
-            $order[0] = $num3;
-            $order[2] = $aux;
-        }else{
-            break;
-        }
+    if ($num1 >= $num2 && $num2 >= $num3 && $num1 >= $num3) {
+        $order = array($num1, $num2, $num3);
+    }elseif ($num1 <= $num2 && $num2 <= $num3 && $num1 <= $num3) {
+        $order = array($num3, $num2, $num1);
+    }elseif ($num1 >= $num2 && $num2 <= $num3) {
+        $order = array($num1,$num3,$num2);
+    }elseif($num1 <= $num2){
+        $order = array($num2,$num1,$num3);
+    }elseif($num2 <= $num3){
+        $order = array($num1,$num3,$num2);
+    }else {
+        $order = array($num1, $num2, $num3);
     }
+
 ?>
 
 <!DOCTYPE html>
