@@ -6,17 +6,19 @@
 
 <?php 
     $num = @$_GET["inpNr"];
-    $result = "";
+    $result = "Divisível por ";
 
     if($num != null){
         if ($num % 10 == 0){
-            $result = "Divisível por 10";
-        }else if ($num % 5 == 0){
-            $result = "Divisível por 5";
-        }else if ($num % 2 == 0){
-            $result = "Divisível por 2";
-        }else {
-            $result = "Não é divisível pelos números acima";
+            $result = $result.("10 ");
+        }
+
+        if ($num % 5 == 0) {
+            $result = $result.("5 ");   
+        }
+
+        if ($num % 2 == 0){
+            $result = $result.("2 ");
         }
     }
 
@@ -27,7 +29,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercício 2 - Verifica divisão</title>
+    <title>Document</title>
 </head>
 <body>
     <form method="get">
